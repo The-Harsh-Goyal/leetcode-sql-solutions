@@ -1,5 +1,5 @@
 -- LeetCode #262: Trips and Users
--- Difficulty: Easy
+-- Difficulty: Hard
 -- Link: https://leetcode.com/problems/trips-and-users/
 -- Tags: CTE/group by
 
@@ -40,4 +40,5 @@ trips as (
 )
 select request_at as Day,ROUND(SUM(CASE WHEN status like '%cancelled%' THEN 1 ELSE 0 END) / COUNT(request_at),2) AS "Cancellation Rate" from trips
 group by request_at
+
 order by request_at
